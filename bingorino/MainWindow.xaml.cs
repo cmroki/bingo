@@ -18,11 +18,15 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Collections.Generic;
+using System.CodeDom.Compiler;
 
 namespace bingorino {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
+    
+
     public partial class MainWindow : Window {
         public MainWindow() {
             InitializeComponent();
@@ -32,27 +36,29 @@ namespace bingorino {
             labelPointsBlue.Content = pointsBlue.ToString();
             labelPointsRed.Content = pointsRed.ToString();
             // this is immediately initiated with the program 
-            // because it was causing problems otherwise
-            // making codes have numbers above the value of the objectives list
+            // because it'd be causing problems otherwise
             readFromFile(textFileFolder, objectives);
         }
 
         /* TO DO: 
-         * X points system
-         * X read entries from a file
-         * X generate a random bingo card
-         * X give the user the ability to generate a bingo card from a code
-         * X make program an executable
-         * X upload it to github and manage the code
          * - add settings for customising the program
          * ? add multiplayer
          */
 
+        // for later use in scores
         public int pointsBlue;
         public int pointsRed;
 
+        // makes these colours easier to write out
         public Brush blueColour = Brushes.DeepSkyBlue;
         public Brush redColour = Brushes.Crimson;
+
+        // paths for later use in images, too lazy to write them out each time they're used
+        BitmapImage copySource = new BitmapImage(new Uri(@"/img/copy.png", UriKind.Relative));
+        BitmapImage copiedSource = new BitmapImage(new Uri(@"/img/copy_copied.png", UriKind.Relative));
+        BitmapImage generateFromCodeSource = new BitmapImage(new Uri(@"/img/generate_from_code.png", UriKind.Relative));
+        BitmapImage generateRandomlySource = new BitmapImage(new Uri(@"/img/generate_randomly.png", UriKind.Relative));
+        BitmapImage settingsSource = new BitmapImage(new Uri(@"/img/settings.png", UriKind.Relative));
 
         // this list will have objectives that are from the objectives.txt file
         // and then put in the list by the placeIntoList() method
@@ -131,11 +137,16 @@ namespace bingorino {
             return fullLine;
         }
 
+        private void showImage(Image image, int height, int width) {
+            image.Visibility = Visibility.Visible;
+            image.Height = height;
+            image.Width = width;
+        }
+
         private void generateRandomBingoCards() {
             // clears the code list to make sure the codes don't exceed 25 seperate numbers
-            // at one point it exceeded 300 seperate numbers
             code.Clear();
-            writeToCards(objectives, codeToCopy);
+            writeToCards(objectives);
         }
 
         // needs two parameters filled
@@ -164,7 +175,9 @@ namespace bingorino {
 
         // needs one parameter
         // list -> a list type that will have random values placed into it
-        private void writeToCards(List<string> list, TextBlock showCodeOnScreen) {
+        private void writeToCards(List<string> list) {
+            labelPointsBlue.Visibility = Visibility.Visible;
+            labelPointsRed.Visibility = Visibility.Visible;
             // iterates through 25 "cards"
             for (int i = 0; i < 25; i++) {
                 // generates a random class
@@ -210,10 +223,14 @@ namespace bingorino {
             }
 
             // after the for loop is finished, shows the code on screen
-            showCodeOnScreen.Text = "Copy code";
+            //showCodeOnScreen.Text = "Copy code";
+            bingoCopy.Source = copySource;
+            copyBingoCodeButton.Visibility = Visibility.Visible;
         }
 
         private void writeToCardsFromCode(List<string> list, List<int> numbersList) {
+            labelPointsBlue.Visibility = Visibility.Visible;
+            labelPointsRed.Visibility = Visibility.Visible;
             for (int i = 0; i < numbersList.Count(); i++) {
                 Random random = new Random();
 
@@ -232,6 +249,8 @@ namespace bingorino {
                     MessageBox.Show($"TextBlock {textBlockName} not found.");
                 }
             }
+            bingoCopy.Source = copySource;
+            copyBingoCodeButton.Visibility = Visibility.Visible;
         }
 
         // this one is responsible for marking the squares blue
@@ -320,35 +339,42 @@ namespace bingorino {
             generateRandomBingoCards();
         }
 
-        private async void copyBingoCode(object sender, MouseButtonEventArgs e) {
-            char comma = ',';
-            Clipboard.SetText(showValuesInString(code, comma));
-
-            codeToCopy.Text = "Copied!";
-
-            await Task.Delay(2000);
-
-            codeToCopy.Text = "Copy code";
-        }
-
         private void generateCardsFromCode(object sender, RoutedEventArgs e) {
-            
+
             // this is a list created from the code input
             // code input text is first split by the comma
             // each fragment is then made into an int
             // and lastly, everything is made into a list
-            List<int> randomNumbersFromCode = codeInput.Text
+            //List<int> randomNumbersFromCode = codeInput.Text
+            //                                  .Split(',')
+            //                                  .Select(int.Parse)
+            //                                  .ToList();
+
+            // this works now, as intended
+            // clipboard's copied stuff is taken and then made into a list
+            List<int> randomNumbersFromCode = Clipboard.GetText()
                                               .Split(',')
                                               .Select(int.Parse)
                                               .ToList();
-
-
 
             // in case something goes wrong with the code, these are used to debug it
             //Trace.WriteLine(showValuesInString(randomNumbersFromCode));
             //Trace.WriteLine(randomNumbersFromCode.Count());
 
+            string pain = Clipboard.GetText();
             writeToCardsFromCode(objectives, randomNumbersFromCode);
+        }
+       
+        private async void copyCode(object sender, RoutedEventArgs e) {
+            char comma = ',';
+            Clipboard.SetText(showValuesInString(code, comma));
+
+            //codeToCopy.Text = "Copied!";
+            bingoCopy.Source = copiedSource;
+
+            await Task.Delay(2000);
+
+            bingoCopy.Source = copySource;
         }
     }
 }

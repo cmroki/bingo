@@ -8,4 +8,20 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="img\copy.png" />
+    <None Remove="img\copy_copied.png" />
+    <None Remove="img\generate_from_code.png" />
+    <None Remove="img\generate_randomly.png" />
+    <None Remove="img\settings.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="img\copy.png" />
+    <Resource Include="img\copy_copied.png" />
+    <Resource Include="img\generate_from_code.png" />
+    <Resource Include="img\generate_randomly.png" />
+    <Resource Include="img\settings.png" />
+  </ItemGroup>
+
 </Project>

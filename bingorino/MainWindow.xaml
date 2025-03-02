@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:bingorino"
         mc:Ignorable="d"
-        Title="TF2 Bingo" Height="925" Width="775">
-    <Grid Name="grid1">
+        Title="TF2 Bingo" Height="945" Width="775"
+        ResizeMode="NoResize">
+    <Grid Name="grid1" Background="Black" HorizontalAlignment="Center">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="150"/>
@@ -21,113 +22,173 @@
             <RowDefinition Height="150"/>
             <RowDefinition Height="150"/>
             <RowDefinition Height="150"/>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="150"/>
         </Grid.RowDefinitions>
 
+        <Rectangle Grid.Row="0" Grid.ColumnSpan="5" Fill="White"/>
 
-        <TextBlock x:Name="textBlock_0"  Grid.Row="0" Grid.Column="0" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5"/>
-        <TextBlock x:Name="textBlock_1" Grid.Row="0" Grid.Column="1" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5"/>
-        <TextBlock x:Name="textBlock_2" Grid.Row="0" Grid.Column="2" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5"/>
-        <TextBlock x:Name="textBlock_3" Grid.Row="0" Grid.Column="3" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5"/>
-        <TextBlock x:Name="textBlock_4" Grid.Row="0" Grid.Column="4" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5"/>
+        <TextBlock x:Name="textBlock_0"  Grid.Row="1" Grid.Column="0" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5" Margin="5" Background="White"/>
+        <TextBlock x:Name="textBlock_1" Grid.Row="1" Grid.Column="1" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5" Margin="5" Background="White"/>
+        <TextBlock x:Name="textBlock_2" Grid.Row="1" Grid.Column="2" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5" Margin="5" Background="White"/>
+        <TextBlock x:Name="textBlock_3" Grid.Row="1" Grid.Column="3" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5" Margin="5" Background="White"/>
+        <TextBlock x:Name="textBlock_4" Grid.Row="1" Grid.Column="4" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5" Margin="5" Background="White"/>
 
-        <TextBlock x:Name="textBlock_5" Grid.Row="1" Grid.Column="0" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5"/>
-        <TextBlock x:Name="textBlock_6" Grid.Row="1" Grid.Column="1" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5"/>
-        <TextBlock x:Name="textBlock_7" Grid.Row="1" Grid.Column="2" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5"/>
-        <TextBlock x:Name="textBlock_8" Grid.Row="1" Grid.Column="3" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5"/>
-        <TextBlock x:Name="textBlock_9" Grid.Row="1" Grid.Column="4" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5"/>
+        <TextBlock x:Name="textBlock_5" Grid.Row="2" Grid.Column="0" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5" Margin="5" Background="White"/>
+        <TextBlock x:Name="textBlock_6" Grid.Row="2" Grid.Column="1" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5" Margin="5" Background="White"/>
+        <TextBlock x:Name="textBlock_7" Grid.Row="2" Grid.Column="2" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5" Margin="5" Background="White"/>
+        <TextBlock x:Name="textBlock_8" Grid.Row="2" Grid.Column="3" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5" Margin="5" Background="White"/>
+        <TextBlock x:Name="textBlock_9" Grid.Row="2" Grid.Column="4" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5" Margin="5" Background="White"/>
 
-        <TextBlock x:Name="textBlock_10" Grid.Row="2" Grid.Column="0" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5"/>
-        <TextBlock x:Name="textBlock_11" Grid.Row="2" Grid.Column="1" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5"/>
-        <TextBlock x:Name="textBlock_12" Grid.Row="2" Grid.Column="2" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5"/>
-        <TextBlock x:Name="textBlock_13" Grid.Row="2" Grid.Column="3" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5"/>
-        <TextBlock x:Name="textBlock_14" Grid.Row="2" Grid.Column="4" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5"/>
+        <TextBlock x:Name="textBlock_10" Grid.Row="3" Grid.Column="0" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5" Margin="5" Background="White"/>
+        <TextBlock x:Name="textBlock_11" Grid.Row="3" Grid.Column="1" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5" Margin="5" Background="White"/>
+        <TextBlock x:Name="textBlock_12" Grid.Row="3" Grid.Column="2" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5" Margin="5" Background="White"/>
+        <TextBlock x:Name="textBlock_13" Grid.Row="3" Grid.Column="3" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5" Margin="5" Background="White"/>
+        <TextBlock x:Name="textBlock_14" Grid.Row="3" Grid.Column="4" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5" Margin="5" Background="White"/>
 
-        <TextBlock x:Name="textBlock_15" Grid.Row="3" Grid.Column="0" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5"/>
-        <TextBlock x:Name="textBlock_16" Grid.Row="3" Grid.Column="1" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5"/>
-        <TextBlock x:Name="textBlock_17" Grid.Row="3" Grid.Column="2" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5"/>
-        <TextBlock x:Name="textBlock_18" Grid.Row="3" Grid.Column="3" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5"/>
-        <TextBlock x:Name="textBlock_19" Grid.Row="3" Grid.Column="4" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5"/>
+        <TextBlock x:Name="textBlock_15" Grid.Row="4" Grid.Column="0" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5" Margin="5" Background="White"/>
+        <TextBlock x:Name="textBlock_16" Grid.Row="4" Grid.Column="1" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5" Margin="5" Background="White"/>
+        <TextBlock x:Name="textBlock_17" Grid.Row="4" Grid.Column="2" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5" Margin="5" Background="White"/>
+        <TextBlock x:Name="textBlock_18" Grid.Row="4" Grid.Column="3" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5" Margin="5" Background="White"/>
+        <TextBlock x:Name="textBlock_19" Grid.Row="4" Grid.Column="4" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5" Margin="5" Background="White"/>
 
-        <TextBlock x:Name="textBlock_20" Grid.Row="4" Grid.Column="0" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5"/>
-        <TextBlock x:Name="textBlock_21" Grid.Row="4" Grid.Column="1" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5"/>
-        <TextBlock x:Name="textBlock_22" Grid.Row="4" Grid.Column="2" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5"/>
-        <TextBlock x:Name="textBlock_23" Grid.Row="4" Grid.Column="3" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5"/>
-        <TextBlock x:Name="textBlock_24" Grid.Row="4" Grid.Column="4" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5"/>
-
-
+        <TextBlock x:Name="textBlock_20" Grid.Row="5" Grid.Column="0" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5" Margin="5" Background="White"/>
+        <TextBlock x:Name="textBlock_21" Grid.Row="5" Grid.Column="1" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5" Margin="5" Background="White"/>
+        <TextBlock x:Name="textBlock_22" Grid.Row="5" Grid.Column="2" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5" Margin="5" Background="White"/>
+        <TextBlock x:Name="textBlock_23" Grid.Row="5" Grid.Column="3" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5" Margin="5" Background="White"/>
+        <TextBlock x:Name="textBlock_24" Grid.Row="5" Grid.Column="4" MouseDown="unmark" MouseRightButtonDown="markRed" MouseLeftButtonDown="markBlue" Padding="5" Margin="5" Background="White"/>
 
         <Label 
             x:Name="labelPointsBlue"
             Content=""
-            Grid.Row="5"
-            Grid.Column="0"
+            Grid.Row="0"
+            Grid.Column="4"
             Padding="15"
+            Margin="0,50,100,0"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             FontSize="30"
             Foreground="White"
-            Background="DeepSkyBlue"/>
+            Background="DeepSkyBlue"
+            Visibility="Hidden"/>
 
         <Label
             x:Name="labelPointsRed" 
             Content=""
-            Grid.Row="5" 
+            Grid.Row="0" 
             Grid.Column="4" 
             Padding="15"
+            Margin="100,50,0,0"
             HorizontalAlignment="Center" 
             VerticalAlignment="Center"
             FontSize="30" 
             Foreground="White"
-            Background="Crimson"/>
+            Background="Crimson"
+            Visibility="Hidden"/>
 
+
+        <Button
+            x:Name="copyBingoCodeButton"
+            Click="copyCode"
+            Grid.Row="0"
+            Grid.Column="3"
+            Margin="5"
+            Style="{StaticResource RoundButton}"
+            BorderThickness="0"
+            Visibility="Hidden">
+            <Grid>
+                <Image
+                    x:Name="bingoCopy"
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Top"
+                    Height="100"
+                    Width="100"/>
+                <TextBlock
+                    Text="Copy code"
+                    TextWrapping="Wrap"
+                    HorizontalAlignment="Center"
+                    Margin="0,100,0,0"
+                    TextAlignment="Center"
+                    FontSize="18"/>
+            </Grid>
+        </Button>
+
+        <Button
+            x:Name="settings"
+            Grid.Row="0"
+            Grid.Column="2"
+            Style="{StaticResource RoundButton}"
+            Margin="5"
+            BorderThickness="0"
+            Visibility="Hidden">
+            <Grid>
+                <Image
+                    x:Name="settingsImage"
+                    Source="/img/settings.png"
+                    Height="100"
+                    Width="100"
+                    Margin="0,0,0,40"/>
+                <TextBlock
+                    Text="Settings"
+                    TextWrapping="Wrap"
+                    HorizontalAlignment="Center"
+                    Margin="0,100,0,0"
+                    FontSize="18"/>
+            </Grid>
+        </Button>
 
         <Button 
             x:Name="generateBingo"
-            Grid.Row="5"
-            Grid.Column="1"
-            Margin="0,70,0,-25" 
-            Click="generateCards">
-            <TextBlock  
-                Text="Generate randomly"
-                FontSize="20"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                TextAlignment="Center"
-                TextWrapping="Wrap"/>
+            Grid.Row="0"
+            Grid.Column="0"
+            Click="generateCards"
+            Margin="5"
+            BorderThickness="0"
+            Style="{DynamicResource RoundButton}">
+            <!-- inverted image to look better -->
+            <Grid>
+                <Image 
+                    x:Name="generateRandomlyImage"
+                    Source="/img/generate_randomly.png"
+                    FlowDirection="RightToLeft"
+                    Height="100"
+                    Width="100"
+                    Margin="0,0,0,45"
+                    />
+                <TextBlock 
+                    Text="Generate"
+                    TextWrapping="Wrap"
+                    HorizontalAlignment="Center"
+                    Margin="0,100,0,0"
+                    TextAlignment="Center"
+                    FontSize="18"/>
+            </Grid>
         </Button>
-
-        <TextBlock
-            x:Name="codeToCopy"
-            Text="bingo code"
-            Grid.Row="5"
-            Grid.Column="1"
-            HorizontalAlignment="Center"
-            Margin="0,5,0,40"
-            FontSize="25"
-            TextWrapping="WrapWithOverflow"
-            MouseLeftButtonDown="copyBingoCode"
-            />
-
-        <TextBox
-            x:Name="codeInput"
-            Grid.Row="5"
-            Grid.Column="3"
-            Margin="0,5,0,40"/>
 
         <Button 
             x:Name="generateBingoFromCode"
-            Grid.Row="5"
-            Grid.Column="3"
-            Margin="0,70,0,-25"
-            Click="generateCardsFromCode">
-            <TextBlock  
-                Text="Generate with a code"
-                FontSize="20"
+            Grid.Row="0"
+            Grid.Column="1"
+            Margin="5"
+            Click="generateCardsFromCode"
+            BorderThickness="0"
+            Style="{DynamicResource RoundButton}">
+            <Grid>
+                <Image
+                    x:Name="generateFromCodeImage"
+                    Source="/img/generate_from_code.png"
+                    Height="100"
+                    Width="100"
+                    Margin="0,0,0,25"
+                    />
+                <TextBlock  
+                Text="Code generation"
+                FontSize="18"
                 HorizontalAlignment="Center"
-                VerticalAlignment="Center"
+                Margin="0,100,0,0"
                 TextAlignment="Center"
-                TextWrapping="WrapWithOverflow"/>
+                TextWrapping="Wrap"
+                />
+            </Grid>
         </Button>
     </Grid>
 </Window>
