@@ -19,6 +19,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Collections.Generic;
 using System.CodeDom.Compiler;
+using System.Configuration;
 
 namespace bingorino {
     /// <summary>
@@ -68,12 +69,12 @@ namespace bingorino {
         public List<int> code = new List<int> { };
 
         // creates a window object that is used to generate bingo cards
-        //Window generationOptions = new Window() {
-        //    Title = "Settings",
-        //    Height = 100,
-        //    Width = 100,
-
-        //};
+        Window options = new Window() {
+            Title = "Settings",
+            Height = 100,
+            Width = 100,
+            Icon = new BitmapImage(new Uri(@"/img/icons/settings_icon.ico", UriKind.Relative)),
+        };
 
         // path.combine - combines three different paths to files
         // 1. the main app folder, in which there is the exe file
@@ -119,6 +120,16 @@ namespace bingorino {
             for (int i = 0; i < list.Count; i++) {
                 fullLine += list[i].ToString();
             }
+            return fullLine;
+        }
+
+        private string showValuesInString(List<string> list) {
+            string fullLine = "";
+
+            for (int i = 0; i < list.Count(); i++) {
+                fullLine += list[i].ToString();
+            }
+
             return fullLine;
         }
 
@@ -339,31 +350,37 @@ namespace bingorino {
             generateRandomBingoCards();
         }
 
+
         private void generateCardsFromCode(object sender, RoutedEventArgs e) {
+            List<string> clipboardCopiedCode = Clipboard.GetText().Split(',').ToList();
 
-            // this is a list created from the code input
-            // code input text is first split by the comma
-            // each fragment is then made into an int
-            // and lastly, everything is made into a list
-            //List<int> randomNumbersFromCode = codeInput.Text
-            //                                  .Split(',')
-            //                                  .Select(int.Parse)
-            //                                  .ToList();
+            bool isListNumeric = clipboardCopiedCode.All(part => int.TryParse(part, out var result));
 
-            // this works now, as intended
-            // clipboard's copied stuff is taken and then made into a list
-            List<int> randomNumbersFromCode = Clipboard.GetText()
-                                              .Split(',')
-                                              .Select(int.Parse)
-                                              .ToList();
+            if (isListNumeric == true) {
+                // this is a list created from the code input
+                // code input text is first split by the comma
+                // each fragment is then made into an int
+                // and lastly, everything is made into a list
+                //List<int> randomNumbersFromCode = codeInput.Text
+                //                                  .Split(',')
+                //                                  .Select(int.Parse)
+                //                                  .ToList();
 
-            // in case something goes wrong with the code, these are used to debug it
-            //Trace.WriteLine(showValuesInString(randomNumbersFromCode));
-            //Trace.WriteLine(randomNumbersFromCode.Count());
+                // this works now, as intended
+                // clipboard's copied stuff is taken and then made into a list
+                List<int> randomNumbersFromCode = clipboardCopiedCode.Select(int.Parse).ToList();
 
-            string pain = Clipboard.GetText();
-            writeToCardsFromCode(objectives, randomNumbersFromCode);
-        }
+                // in case something goes wrong with the code, these are used to debug it
+                //Trace.WriteLine(showValuesInString(randomNumbersFromCode));
+                //Trace.WriteLine(randomNumbersFromCode.Count());
+
+                //string pain = Clipboard.GetText();
+                writeToCardsFromCode(objectives, randomNumbersFromCode);
+            }
+            else if (isListNumeric == false) {
+                MessageBox.Show("The code isn't numeric! Copy the code again");
+            }
+        }   
        
         private async void copyCode(object sender, RoutedEventArgs e) {
             char comma = ',';
@@ -375,6 +392,10 @@ namespace bingorino {
             await Task.Delay(2000);
 
             bingoCopy.Source = copySource;
+        }
+
+        private void settingsOpen(object sender, RoutedEventArgs e) {
+            options.Activate();
         }
     }
 }

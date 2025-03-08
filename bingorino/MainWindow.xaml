@@ -114,12 +114,12 @@
 
         <Button
             x:Name="settings"
+            Click="settingsOpen"
             Grid.Row="0"
             Grid.Column="2"
             Style="{StaticResource RoundButton}"
             Margin="5"
-            BorderThickness="0"
-            Visibility="Hidden">
+            BorderThickness="0">
             <Grid>
                 <Image
                     x:Name="settingsImage"
