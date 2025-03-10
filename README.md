@@ -1,5 +1,8 @@
 # bingorino
 
+## What is it?
+This is a small project I made for me and my friend, inspired by the [EldenBingo](https://github.com/awsker/EldenBingo) project. It's a program originally made for TF2 bingo battles.
+
 ## Requirements
 [.NET Runtime 8.0](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
 
